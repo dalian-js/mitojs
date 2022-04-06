@@ -49,10 +49,19 @@ export function replaceOld(source: IAnyObject, name: string, replacement: (...ar
   if (source === undefined) return
   if (name in source || isForced) {
     const original = source[name]
-    const wrapped = replacement(original)
-    if (typeof wrapped === 'function') {
-      source[name] = wrapped
+    const hookedUnsafe = replacement(original)
+    let hooked = hookedUnsafe
+    if (typeof hookedUnsafe === 'function') {
+      // 给所有 hook 之后的方法包一层 try catch
+      hooked = function (this: any, ...args: any) {
+        try {
+          return (hookedUnsafe as any).apply(this, args)
+        } catch {
+          return typeof original === 'function' && original.apply(this, args)
+        }
+      }
     }
+    source[name] = hooked
   }
 }
 
