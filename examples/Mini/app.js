@@ -67,5 +67,11 @@ App({
   onLaunch() {
     console.log('onLaunch')
   },
+  onPageNotFound(obj){
+    console.log('original onPageNotFound',obj)
+  },
+  onUnhandledRejection(obj){
+    console.log('original onUnhandledRejection',obj)
+  },
   globalData: {}
 })

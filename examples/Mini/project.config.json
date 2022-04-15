@@ -30,18 +30,21 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "showES6CompileOption": false
+    "disableUseStrict": false,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "minifyWXML": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.0",
   "appid": "wx0244efe11fd2b3e2",
-  "projectname": "gayLen-wxmp",
+  "projectname": "mito-mini",
   "debugOptions": {
     "hidedInDevtools": []
   },
